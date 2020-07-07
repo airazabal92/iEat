@@ -5,6 +5,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 var session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 var passport = require("passport");
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,10 +16,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ieat");
+
 // Express Session
 app.use(
   session({
     secret: "secret",
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
     saveUninitialized: true,
     resave: true
   })
@@ -31,7 +35,7 @@ app.use(passport.session());
 const apiRoutes = require("./routes/apiRoutes");
 app.use(apiRoutes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ieat");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ieat");
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
