@@ -33,6 +33,10 @@ app.use(apiRoutes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ieat");
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
 app.listen(PORT, function () {
   console.log("App is listening on port http://localhost:" + PORT);
 });
