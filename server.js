@@ -37,8 +37,18 @@ app.use(apiRoutes);
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/ieat");
 
-app.get("*", (request, response) => {
-  response.sendFile(path.join(__dirname, "client/build", "index.html"));
+// app.get("*", (request, response) => {
+//   response.sendFile(path.join(__dirname, "client/build", "index.html"));
+// });
+
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/public/index.html"), function (
+    err
+  ) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 
 app.listen(PORT, function () {
