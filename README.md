@@ -9,7 +9,7 @@ This application lets users input their dietary restrictions, calories, and diet
 ## Application
 
 To view the deployed application on Heroku, visit:
-<a href="https://ieat-app.herokuapp.com/" target="_blank"> https://ieat-app.herokuapp.com/</a>
+<a href=https://ieat-v2-app.herokuapp.com/ target="_blank"> https://ieat-v2-app.herokuapp.com/</a>
 
 ## Technologies Used
 
