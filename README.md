@@ -21,6 +21,8 @@ The ingredient list includes the ingredient, amount, and quantity and is separat
 To view the deployed application on Heroku, visit:
 <a href=https://ieat-v2-app.herokuapp.com/ target="_blank"> https://ieat-v2-app.herokuapp.com/</a>
 
+Version 1 of Application: https://github.com/jekwanjk/Project3-iEat
+
 ## Technologies Used
 
 - MongoDB
